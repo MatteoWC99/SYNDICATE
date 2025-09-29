@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Syndicate 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: black;
+      color: #f00;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+	  color: #0000FF;
+    }
+    #countdown {
+      font-size: 2em;
+      letter-spacing: 3px;
+    }
+    .time {
+      display: inline-block;
+      margin: 0 15px;
+	  color: #0000FF;
+    }
+    .label {
+      display: block;
+      font-size: 0.6em;
+      color: #0000FF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Syndicate Festival 2025</h1>
+  <div id="countdown"></div>
+
+  <script>
+    const eventDate = new Date("October 4, 2025 20:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "L'evento è iniziato!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `<span class="time">${days}<span class="label">Giorni</span></span>` +
+        `<span class="time">${hours}<span class="label">Ore</span></span>` +
+        `<span class="time">${minutes}<span class="label">Minuti</span></span>` +
+        `<span class="time">${seconds}<span class="label">Secondi</span></span>`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
