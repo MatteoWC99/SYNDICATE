@@ -6,39 +6,55 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: black;
-      color: #f00;
+      background: url('sfondo.jpg') no-repeat center center fixed; /* foto caricata nel repository */
+      background-size: cover;    /* fa coprire tutta la pagina dalla foto */
+      color: #00f;               /* testo blu */
       text-align: center;
-      padding-top: 100px;
+      padding: 40px 10px;
     }
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 40px;
-	  color: #0000FF;
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #00f;               /* titolo blu */
+      text-shadow: 2px 2px 5px black; /* ombra per miglior leggibilità */
     }
     #countdown {
-      font-size: 2em;
-      letter-spacing: 3px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
     .time {
-      display: inline-block;
-      margin: 0 15px;
-	  color: #0000FF;
+      font-size: 1.8em;
+      background: rgba(0,0,0,0.5); /* sfondo semitrasparente per numeri */
+      color: #00f;
+      padding: 15px;
+      border-radius: 10px;
+      min-width: 80px;
+      text-shadow: 1px 1px 2px black;
     }
     .label {
       display: block;
       font-size: 0.6em;
-      color: #0000FF;
+      color: #00f;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .time {
+        font-size: 1.2em;
+        padding: 10px;
+        min-width: 60px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Syndicate Festival 2025</h1>
-  <h1>Ma smettila che non è uguale</h1>
   <div id="countdown"></div>
 
   <script>
-    const eventDate = new Date("October 4, 2025 20:00:00").getTime();
+    const eventDate = new Date("October 11, 2025 20:00:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
@@ -66,4 +82,3 @@
   </script>
 </body>
 </html>
-
